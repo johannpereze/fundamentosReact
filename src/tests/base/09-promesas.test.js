@@ -11,15 +11,11 @@ describe("Prueba con promesas", () => {
     });
   });
 
-  test("Debe obtener un error si el hero por ID no existe", (done) => {
+  test("Debe obtener un error si el hero por ID no existe", () => {
     const id = 10;
-    getHeroeByIdAsync(id).catch((err) => {
-    //   console.log(err);
-    expect(err).toBe("No se pudo encontrar el héroe")
-    //   expect(err).toBe("No se pudo encontrar el héroe");
-      done();
-    });
+
+    return expect(getHeroeByIdAsync(id)).rejects.toMatch(
+      "No se pudo encontrar el héroe"
+    );
   });
-
-
 });
