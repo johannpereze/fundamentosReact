@@ -40,4 +40,20 @@ describe("Pruebas del CounterApp component", () => {
 
     expect(texto2).toBe("9");
   });
+  test("debe de dejar el contador en el valor predeterminado", () => {
+    
+    const value = 100;
+
+    const wrapper = shallow(<CounterApp value={value} />);
+
+    wrapper.find("button").at(0).simulate("click");
+    wrapper.find("button").at(0).simulate("click");
+    wrapper.find("button").at(1).simulate("click");
+
+    const texto2 = wrapper.find("h2").text();
+
+    console.log(texto2);
+
+    expect(texto2).toBe("100");
+  });
 });
